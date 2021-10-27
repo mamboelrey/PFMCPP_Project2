@@ -106,7 +106,7 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-char vehicleType(bool truck, int numOfTires = 4, int year = 2000) 
+char getVehicleType(bool truck, int numOfTires = 4, int year = 2000) 
 { 
     ignoreUnused(truck, numOfTires, year); 
     return {};
@@ -114,7 +114,7 @@ char vehicleType(bool truck, int numOfTires = 4, int year = 2000)
 /*
  2)
  */
-float planeDistanceLeft(float milesTraveled, char planeName, bool badWeather = false)  
+float computePlaneDistanceLeft(float milesTraveled, char planeName, bool badWeather = false)  
 { 
     ignoreUnused(milesTraveled, planeName, badWeather); 
     return {};
@@ -122,15 +122,15 @@ float planeDistanceLeft(float milesTraveled, char planeName, bool badWeather = f
 /*
  3)
  */
-bool stormApproaching(int rainLevel, bool wind =  false, bool darkClouds = false)  
+bool detectStormApproaching(int rainLevel, bool wind =  false, bool darkClouds = false, bool stormSirenWailing = false) 
 { 
-    ignoreUnused(rainLevel, wind, darkClouds); 
+    ignoreUnused(rainLevel, wind, darkClouds, stormSirenWailing); 
     return {}; 
 } 
 /*
  4)
  */
-int areaOfRectangle(int length = 0, int width = 0) 
+int getAreaOfRectangle(int length = 0, int width = 0) 
 { 
     ignoreUnused(length, width);
     return {}; 
@@ -145,7 +145,7 @@ void whereIsWaldo(int numberOfNonWaldos = 200, int numberOfWaldos = 1)
 /*
  6)
  */
-double circumference(double radius, double pi = 3.14)  
+double getCircumference(double radius, double pi = 3.14)  
 { 
     ignoreUnused(radius, pi);
     return {}; 
@@ -169,7 +169,7 @@ bool mowLawn(int cost, bool grassHigh = true, float amountToSpend = 50.50)
 /*
  9)
  */
-unsigned int cleanHouseCost(unsigned int squareFootage, bool standardClean = true, bool cleanBlinds = false)  
+unsigned int computeCleanHouseCost(unsigned int squareFootage, bool standardClean = true, bool cleanBlinds = false)  
 { 
     ignoreUnused(squareFootage, standardClean, cleanBlinds);
     return {};
@@ -177,7 +177,7 @@ unsigned int cleanHouseCost(unsigned int squareFootage, bool standardClean = tru
 /*
  10)
  */
-double stockReturn(float stockPrice, int profitMargins, bool stockIncrease = false) 
+double getStockReturn(float stockPrice, int profitMargins, bool stockIncrease = false) 
 { 
     ignoreUnused(stockPrice, profitMargins, stockIncrease);
     return {};
@@ -202,25 +202,25 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    auto vehicle = vehicleType(true);
+    auto vehicle = getVehicleType(true);
     //2)
-    auto planeDistance = planeDistanceLeft(300.56f, 'B', true);
+    auto planeDistance = computePlaneDistanceLeft(300.56f, 'B', true);
     //3)
-    auto storm = stormApproaching(4, false, true);
+    auto storm = detectStormApproaching(4, false, true, true);
     //4)
-    auto area =  areaOfRectangle(5, 6);
+    auto area =  getAreaOfRectangle(5, 6);
     //5)
     whereIsWaldo();
     //6)
-    auto circleCircum = circumference(5.6);
+    auto circleCircum = getCircumference(5.6);
     //7)
     auto houseStatus = buyHouse(true, 153000.75);
     //8)
     auto hireLandscaper = mowLawn(100, false, 30.50);
     //9)
-    auto getCleaners =  cleanHouseCost(1580);  
+    auto getCleaners =  computeCleanHouseCost(1580);  
     //10)
-    auto sellStock = stockReturn(900.56f, 100, true); 
+    auto sellStock = getStockReturn(900.56f, 100, true); 
     
     ignoreUnused(carRented, vehicle, planeDistance, storm, area, circleCircum, houseStatus, hireLandscaper, getCleaners, sellStock);
 
